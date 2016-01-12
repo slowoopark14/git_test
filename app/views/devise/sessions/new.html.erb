@@ -1,0 +1,45 @@
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url(<%= asset_path 'giant_bear' %>)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>로그인 하기</h1>
+                    <hr class="small">
+                    <span class="subheading">더 많은 서비스를 위해서 로그인 해주세요!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!----page Header done --->
+
+<h2 style="text-align:center">Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field" style="text-align:center">
+    <%= f.label :email %><br />
+    <input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" style="width:700px">
+  </div>
+
+  <div class="field" style="text-align:center">
+    <%= f.label :password %><br />
+    <input autocomplete="off" type="password" name="user[password]" id="user_password" style="width:700px">
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field" style="text-align:center">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions" style="text-align:center">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<div style="text-align:center; margin-top:10px">
+  <%= render "devise/shared/links" %>
+</end>
